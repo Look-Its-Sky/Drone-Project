@@ -1,5 +1,3 @@
-from distutils import text_file
-from shutil import move
 from jude_speech import *
 from jude_codrone import *
 
