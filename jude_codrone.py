@@ -1,3 +1,5 @@
+from CoDrone import *
+
 class judedrone():
     drone = None
     power = 1
@@ -50,4 +52,4 @@ class judedrone():
         self.drone.land()
 
     def __del__(self):
-        drone.close()
+        self.drone.close()
