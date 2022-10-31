@@ -1,55 +1,52 @@
-from CoDrone import *
+from codrone_edu.drone import *
+import os
 
 class judedrone():
-    drone = None
+    dronee = None
     power = 1
 
     def __init__(self) -> None:
-        self.drone = CoDrone.CoDrone()
-        self.drone.pair(Drone.Nearest)
+        self.dronee = Drone()
+        self.dronee.pair()
 
-    def takeOff():
-        self.drone.takeoff()
+    def takeOff(self):
+        self.dronee.takeoff()
 
-    def moveRight():
+    def moveRight(self):
         print("Moving Right!")
-        self.drone.set_yaw(50)
-        self.drone.move(power)
-        self.drone.set_yaw(0)
+        self.dronee.set_yaw(50)
+        self.dronee.move(self.power)
+        self.dronee.set_yaw(0)
 
-    def moveLeft():
+    def moveLeft(self):
         print("Moving Left!")
-        self.drone.set_yaw(-50)
-        self.drone.move(power)
-        self.drone.set_yaw(0)
+        self.dronee.set_yaw(-50)
+        self.dronee.move(self.power)
+        self.dronee.set_yaw(0)
 
-    def moveUp():
+    def moveUp(self):
         print("Moving Up!")
-        self.drone.set_throttle(20)
-        wait(1)
-        self.drone.set_throttle(0)
+        self.dronee.set_throttle(50)
 
-    def moveDown():
+    def moveDown(self):
         print("Moving Down!")
-        self.drone.set_throttle(-20)
-        wait(1)
-        self.drone.set_throttle(0)
+        self.dronee.set_throttle(-50)
 
-    def moveForward():
+    def moveForward(self):
         print("Moving Forward!")
-        self.drone.set_pitch(30)
-        self.drone.move(power)
-        self.drone.set_yaw(0)
+        self.dronee.set_pitch(30)
+        self.dronee.move(self.power)
+        self.dronee.set_yaw(0)
 
-    def moveBackward():
+    def moveBackward(self):
         print("Moving Backward!")
-        self.drone.set_pitch(-30)
-        self.drone.move(power)
-        self.drone.set_yaw(0)
+        self.dronee.set_pitch(-30)
+        self.dronee.move(self.power)
+        self.dronee.set_yaw(0)
 
-    def land():
+    def land(self):
         print("Landing!")
-        self.drone.land()
+        self.dronee.land()
 
     def __del__(self):
-        self.drone.close()
+        self.dronee.close()

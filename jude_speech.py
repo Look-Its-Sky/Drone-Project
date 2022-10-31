@@ -1,5 +1,4 @@
 import speech_recognition as sr
-import pyaudio
 
 class speech_listener():
     init_rec = None
@@ -7,10 +6,17 @@ class speech_listener():
     def __init__(self) -> None:
         self.init_rec = sr.Recognizer()
 
-    def listen() -> str: 
+    def listen(self) -> str: 
         with sr.Microphone() as source:
             print("Let's speak!!")
-            audio_data = init_rec.record(source, duration=5)
+            audio_data = self.init_rec.record(source, duration=5)
             print("Recognizing your text.............")
-            text = init_rec.recognize_google(audio_data)
+            text = self.init_rec.recognize_google(audio_data)
+            print(text)
             return text
+
+if __name__ == "__main__":
+    s = speech_listener()
+
+    while True:
+        print(s.listen())

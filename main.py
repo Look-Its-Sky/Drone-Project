@@ -1,33 +1,39 @@
 from jude_speech import *
 from jude_codrone import *
+import atexit
+
+def onExit():
+    dronee.land()
 
 if __name__ == "__main__":
     sr = speech_listener()
-    drone = judedrone()
+    dronee = judedrone()
+
+    atexit.register(onExit)
 
     while True:
         text = sr.listen()
 
-        if "move up" in text:
-            drone.moveUp()
+        if "up" in text:
+            dronee.moveUp()
 
-        if "move down" in text:
-            drone.moveDown()
+        if "down" in text:
+            dronee.moveDown()
 
-        if "move left" in text:
-            drone.moveLeft()
+        if "left" in text:
+            dronee.moveLeft()
 
-        if "move right" in text:
-            drone.moveRight()
+        if "right" in text:
+            dronee.moveRight()
 
-        if "move forward" in text:
-            drone.moveForward()
+        if "forward" in text:
+            dronee.moveForward()
 
-        if "move backward" in text:
-            drone.moveBackward()
+        if "backward" in text:
+            dronee.moveBackward()
 
         if "land" in text:
-            drone.land()
+            dronee.land()
 
-        if "take off" in text:
-            drone.takeOff()
+        if "take off" or "takeoff" in text:
+            dronee.takeOff()
